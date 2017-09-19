@@ -58,11 +58,25 @@ As you might've noticed, `for...of` allows us to use `const` instead of `let`. I
 Delightfully, the `for...of` statement involves no such reassignment. On each trip into the loop body (which is a _block_ — note the curly braces), we assign the next element in the collection to a **new** `element` variable. Upon reaching the end of the block, the block-scoped variable vanishes, and we return to the top. Then we repeat the process, assigning the next element in the collection to a **new** `element` variable.
 
 ### Iterating over... strings?
-A string is effectively an ordered collection of characters, which `for...of` is more than happy to iterate over:
+A string is effectively an ordered collection (an array) of characters, which `for...of` is more than happy to iterate over:
 ```js
 for (const char of 'Hello, world!') {
   console.log(char);
 }
+
+// LOG: H
+// LOG: e
+// LOG: l
+// LOG: l
+// LOG: o
+// LOG: ,
+// LOG:
+// LOG: w
+// LOG: o
+// LOG: r
+// LOG: l
+// LOG: d
+// LOG: !
 ```
 
 ### Usage
@@ -71,7 +85,7 @@ Use a `for...of` statement anytime you want to iterate over an array.
 ## Iterating over objects
 The `for...in` statement has been around for a long time, and it's usually used for iterating over the properties in an object. The statement follows this syntax:
 ```js
-for (const [key] in [object]) {
+for (const <KEY> in <OBJECT>) {
   // Code in the statement body
 }
 ```
@@ -166,9 +180,8 @@ As a general rule, **don't use `for...in` with arrays**. When iterating over an 
 Additionally, in the pre-ES2015 days, using `for...in` would often result in different browsers iterating over the same object's properties in different orders. That's not cool! Cross-browser consistency is very important. A lot of progress has been made towards standardizing the behavior of `for...in` across all major browsers, but there's still no reason to use `for...in` with arrays when we have the wonderfully consistent `for...of` tailor-made for the job.
 
 ## Resources
-- MDN
-  + [`for...of`][for...of]
-  + [`for...in`][for...in]
+- [MDN — `for...of`][for...of]
+- [MDN — `for...in`][for...in]
 
 [for...of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 [for...in]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
