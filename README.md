@@ -42,12 +42,12 @@ we "mark up" content in the HyperText Markup Language (HTML). It lets us
 document the _purpose_ of the text. With HTML we can be more _expressive_ than
 with plain text.
 
-Let's consider code where `harry_potter` performs _expelliarmus_ on each member
+Let's consider code where `harryPotter` performs _expelliarmus_ on each member
 of `slytherins`.
 
 ```javascript
 for (let i = 0; i < slytherins.count; i = i + 1) {
-  harry_potter.expelliarmus(slytherins[i]);
+  harryPotter.expelliarmus(slytherins[i]);
 }
 ```
 
@@ -66,7 +66,7 @@ iterate members of `Array`s.
 const slytherins = ["Salazar Slytherin", "Bellatrix Black", "Draco Malfoy"];
 
 for (const snakeyWizard of slytherins) {
-  harry_potter.expelliarmus(snakeyWizard);
+  harryPotter.expelliarmus(snakeyWizard);
 }
 ```
 
