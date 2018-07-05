@@ -4,8 +4,8 @@
 
 After learning about collections (`Array`, `Object`), it's very common to need
 to be able to do some activity for each element in the collection. For each
-evil wizard, disarm them! For each wedding guest, invite them. Yet this is our
-only tool:
+evil wizard, disarm them! For each wedding guest, invite them. Yet the `for`
+loop is our only tool:
 
 ```js
 for (let i = 0; i < array.length; i++) {
@@ -13,23 +13,27 @@ for (let i = 0; i < array.length; i++) {
 }
 ```
 
-ES2015 introduce a simpler way to express this common path. For `Array`s we now
-have `for...of` and for Objects we now have `for...`in`.
+ES2015 introduced a simpler way to express this common path. For `Array`s we
+now have `for...of` and for Objects we now have `for...`in`.
 
 ## Objectives
 
 1. Define iteration
-2. Discuss what's wrong with `for` loops; "expressivity"
+2. Discuss the Problem of Expressivity with `for` Loops
 3. Iterate over `Array`s with the `for...of` statement.
 4. Iterate over `Sting`s with the `for...of` statement.
 6. Enumerate an object's properties with the `for...in` statement.
 
 ## Define Iteration
 
-"Iteration" comes from the Latin word _iterum_ meaning "again." Iteration is
-the process of doing the same thing _again_...to each thing in a collection.
+Iteration is doing something again and again "for each" element in the
+collection.
 
-## Discuss What's Wrong With `for` Loops; "expressivity"
+> **WORD ORIGIN NOTE** If word origins help you remember things, _iterum_ means
+> "again." So "iteration" is "again-ation:" expect something to happen again
+> and again!
+
+## Discuss the Problem of Expressivity with `for` Loops
 
 So what's wrong with `for` loops? They allowed us to iterate too, after all.
 The problem is that they aren't very _expressive_. You might have heard this
@@ -37,7 +41,7 @@ term used when talking about HTML.
 
 If you saw a newspaper and in big letters at the top it said "MANKIND WALKS ON
 MOON," you, a human, would have no problem recognizing it as a header. But in
-an HTML file, a browser couldn't know the same thing.  That's one of the easons
+an HTML file, a browser couldn't know the same thing.  That's one of the reasons
 we "mark up" content in the HyperText Markup Language (HTML). It lets us
 document the _purpose_ of the text. With HTML we can be more _expressive_ than
 with plain text.
@@ -72,7 +76,7 @@ for (const snakeyWizard of slytherins) {
 
 It's much cleaner than the `for` loop:
 
-* No three-part declaration divided by `;` to memoize
+* No three-part declaration divided by `;` to memorize
 * No initialization of a counter
 * No condition
 * No incrementing the counter
