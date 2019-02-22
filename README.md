@@ -14,7 +14,7 @@ to remember:
 
 ```js
 for (let i = 0; i < array.length; i++) {
-	// Loop body
+  // Loop body
 }
 ```
 
@@ -39,7 +39,7 @@ but none were very pretty. With a `for` loop:
 let myArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
 for (let i = 0; i < myArray.length; i++) {
-	console.log(myArray[i]);
+  console.log(myArray[i]);
 }
 ```
 
@@ -51,7 +51,7 @@ let myArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 let j = 0;
 
 while (j < myArray.length) {
-	console.log(myArray[j++]);
+  console.log(myArray[j++]);
 }
 ```
 
@@ -64,7 +64,7 @@ previous two snippets:
 const myArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
 for (const element of myArray) {
-	console.log(element);
+  console.log(element);
 }
 ```
 
@@ -95,7 +95,7 @@ A string is effectively an ordered collection (an array) of characters, which
 
 ```js
 for (const char of 'Hello, world!') {
-	console.log(char);
+  console.log(char);
 }
 
 // LOG: H
@@ -135,11 +135,11 @@ _keys_:
 
 ```js
 const address = {
-	street1: '11 Broadway',
-	street2: '2nd Floor',
-	city: 'New York',
-	state: 'NY',
-	zipCode: 10004
+  street1: '11 Broadway',
+  street2: '2nd Floor',
+  city: 'New York',
+  state: 'NY',
+  zipCode: 10004
 };
 
 for (const key in address) {
@@ -158,11 +158,11 @@ the _bracket operator_:
 
 ```js
 const address = {
-	street1: '11 Broadway',
-	street2: '2nd Floor',
-	city: 'New York',
-	state: 'NY',
-	zipCode: 10004
+  street1: '11 Broadway',
+  street2: '2nd Floor',
+  city: 'New York',
+  state: 'NY',
+  zipCode: 10004
 };
 
 for (const key in address) {
@@ -183,15 +183,15 @@ when we use the _dot operator_:
 
 ```js
 const address = {
-	street1: '11 Broadway',
-	street2: '2nd Floor',
-	city: 'New York',
-	state: 'NY',
-	zipCode: 10004
+  street1: '11 Broadway',
+  street2: '2nd Floor',
+  city: 'New York',
+  state: 'NY',
+  zipCode: 10004
 };
 
 for (const key in address) {
-	console.log(address.key);
+  console.log(address.key);
 }
 
 // LOG: undefined
@@ -213,7 +213,7 @@ returns `undefined`. To prove this, let's add a `key` property to `address`:
 address.key = "Let's have a 'key' key!";
 
 for (const key in address) {
-	console.log(address.key);
+  console.log(address.key);
 }
 
 // LOG: Let's have a 'key' key!
