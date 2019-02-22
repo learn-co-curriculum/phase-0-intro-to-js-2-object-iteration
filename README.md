@@ -143,7 +143,7 @@ const address = {
 };
 
 for (const key in address) {
-	console.log(key);
+  console.log(key);
 }
 
 // LOG: street1
