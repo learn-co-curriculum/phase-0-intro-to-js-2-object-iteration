@@ -254,4 +254,3 @@ when we have the wonderfully consistent `for...of` tailor-made for the job.
 [for...of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 [for...in]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 
-<p class='util--hide'>View <a href='https://learn.co/lessons/js-looping-and-iteration-object-iteration-readme'>Object Iteration</a> on Learn.co and start learning to code for free.</p>
