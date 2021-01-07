@@ -1,6 +1,6 @@
 # Object Iteration
 
-## Objectives
+## Learning Goals
 
 - Explain the difference between looping and iteration.
 - Iterate over arrays with the `for...of` statement.
@@ -20,7 +20,7 @@ for (let i = 0; i < array.length; i++) {
 
 The problem is that we're using a _looping_ construct to perform _iteration_.
 
-## Looping vs. iteration
+## Looping vs. Iteration
 
 There's a pretty fine line separating the concepts of _looping_ and _iteration_,
 and only the truly pedantic will call you out if you use one in place of the
@@ -29,11 +29,10 @@ other.
 Looping is the process of executing a set of statements **repeatedly until a
 condition is met**. It's great for when we want to do something a specific
 number of times (`for` loop) or unlimited times until the condition is met
-(`while` loop).
+(`while` or `do while` loop).
 
 Iteration is the process of executing a set of statements **once for each
-element in a collection**. Prior to ES2015, there were a few ways to do this,
-but none were very pretty. With a `for` loop:
+element in a collection**. We can accomplish this with a `for` loop:
 
 ```js
 let myArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
@@ -43,7 +42,7 @@ for (let i = 0; i < myArray.length; i++) {
 }
 ```
 
-With a `while` loop:
+or with a `while` loop:
 
 ```js
 let myArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
@@ -55,10 +54,11 @@ while (j < myArray.length) {
 }
 ```
 
+but neither is very pretty. The `for...of` statement gives us a better to way.
+
 ## `for...of`
 
-ES2015 introduced the `for...of` statement, and, well, just compare this to the
-previous two snippets:
+Using `for...of`, the code above becomes:
 
 ```js
 const myArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
@@ -68,9 +68,10 @@ for (const element of myArray) {
 }
 ```
 
-It's so much cleaner than the looping solutions — no initialization of a
-counter, no condition, no incrementing the counter, and no bracket notation to
-access elements in the array (`myArray[i]`).
+Using a construct that is specifically meant for iteration results in much
+cleaner code: there's no initialization of a counter, no condition, no
+incrementing the counter, and no bracket notation to access elements in the
+array (`myArray[i]`).
 
 ### `const` vs. `let`
 
@@ -82,7 +83,7 @@ reassignment precludes us from using our beloved `const`, which cannot be
 reassigned.
 
 Delightfully, the `for...of` statement involves no such reassignment. On each
-trip into the loop body (which is a _block_ — note the curly braces), we assign
+trip into the loop body (which is a _block_ &mdash; note the curly braces), we assign
 the next element in the collection to a **new** `element` variable. Upon
 reaching the end of the block, the block-scoped variable vanishes, and we return
 to the top. Then we repeat the process, assigning the next element in the
@@ -90,8 +91,8 @@ collection to a **new** `element` variable.
 
 ### Iterating over... strings?
 
-A string is effectively an ordered collection (an array) of characters, which
-`for...of` is more than happy to iterate over:
+A string is effectively an ordered collection (like an array) of characters,
+which `for...of` is more than happy to iterate over:
 
 ```js
 for (const char of 'Hello, world!') {
@@ -119,9 +120,8 @@ Use a `for...of` statement anytime you want to iterate over an array.
 
 ## Iterating over objects
 
-The `for...in` statement has been around for a long time, and it's usually used
-for iterating over the properties in an object. The statement follows this
-syntax:
+The `for...in` statement is similar to `for...of`; it's generally used for
+iterating over the properties in an object. The statement follows this syntax:
 
 ```js
 for (const <KEY> in <OBJECT>) {
@@ -139,7 +139,7 @@ const address = {
   street2: '2nd Floor',
   city: 'New York',
   state: 'NY',
-  zipCode: 10004
+  zipCode: "10004";
 };
 
 for (const key in address) {
@@ -162,11 +162,11 @@ const address = {
   street2: '2nd Floor',
   city: 'New York',
   state: 'NY',
-  zipCode: 10004
+  zipCode: "10004"
 };
 
 for (const key in address) {
-	console.log(address[key]);
+  console.log(address[key]);
 }
 
 // LOG: 11 Broadway
@@ -187,7 +187,7 @@ const address = {
   street2: '2nd Floor',
   city: 'New York',
   state: 'NY',
-  zipCode: 10004
+  zipCode: "10004"
 };
 
 for (const key in address) {
@@ -205,9 +205,9 @@ The `for...in` statement iterates over the five properties in `address`,
 successively passing in the object's keys. However, inside the statement body
 we're trying to access `address.key`. If you recall from the lesson on objects,
 variables don't work with the dot operator because it treats the variable name
-as a literal key — that is, `address.key` is trying to access the property on
-`address` with a key of `key`. Since there is no `key` property in `address`, it
-returns `undefined`. To prove this, let's add a `key` property to `address`:
+as a literal key &mdash; that is, `address.key` is trying to access the property
+on `address` with a key of `key`. Since there is no `key` property in `address`,
+it returns `undefined`. To prove this, let's add a `key` property to `address`:
 
 ```js
 address.key = "Let's have a 'key' key!";
@@ -226,25 +226,27 @@ for (const key in address) {
 
 ### Usage
 
-Use a `for...in` statement whenever you want to enumerate the properties of an object.
+Use a `for...in` statement whenever you want to enumerate the properties of an
+object.
 
 ### `for...in` and order
 
-As a general rule, **don't use `for...in` with arrays**. When iterating over an
-array, an **ordered** collection, we would expect the elements in the array to
-be dealt with **in order**. However, because of how `for...in` works under the
-hood, there's no guarantee of order. From the [MDN documentation][for...in]:
+Because **arrays are objects**, `for...in` _will work_ with arrays. In fact,
+because `for...of` was added to JavaScript later than `for...in`, you might see
+older code that uses `for...in` to iterate over arrays. However, as a general
+rule, **don't use `for...in` with arrays**. When iterating over an array, an
+**ordered** collection, we would expect the elements in the array to be dealt
+with **in order**. However, because of how `for...in` works under the hood,
+there's no guarantee of order. From the [MDN documentation][for...in]:
 
-> A `for...in` loop iterates over the properties of an object in an **arbitrary
-> order** ... one cannot depend on the seeming orderliness of iteration, at least
-> in a cross-browser setting).
+> A `for...in` loop iterates over the properties of an object in an **arbitrary order** ... one cannot depend on the seeming orderliness of iteration, at least in a cross-browser setting).
 
-Additionally, in the pre-ES2015 days, using `for...in` would often result in
-different browsers iterating over the same object's properties in different
-orders. That's not cool! Cross-browser consistency is very important. A lot of
-progress has been made towards standardizing the behavior of `for...in` across
-all major browsers, but there's still no reason to use `for...in` with arrays
-when we have the wonderfully consistent `for...of` tailor-made for the job.
+What this means is that, with `for....in`, different browsers might iterate over
+the same object's properties in different orders. That's not cool! Cross-browser
+consistency is very important. A lot of progress has been made towards
+standardizing the behavior of `for...in` across all major browsers, but there's
+still no reason to use `for...in` with arrays when we have the wonderfully
+consistent `for...of` tailor-made for the job.
 
 ## Resources
 
@@ -253,4 +255,3 @@ when we have the wonderfully consistent `for...of` tailor-made for the job.
 
 [for...of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 [for...in]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
-
