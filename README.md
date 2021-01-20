@@ -124,7 +124,7 @@ The `for...in` statement is similar to `for...of`; it's generally used for
 iterating over the properties in an object. The statement follows this syntax:
 
 ```js
-for (const <KEY> in <OBJECT>) {
+for (const [KEY] in [OBJECT]) {
   // Code in the statement body
 }
 ```
