@@ -83,7 +83,7 @@ reassignment precludes us from using our beloved `const`, which cannot be
 reassigned.
 
 Delightfully, the `for...of` statement involves no such reassignment. On each
-trip into the loop body (which is a _block_ &mdash; note the curly braces), we assign
+trip into the loop body (which is a _block_ — note the curly braces), we assign
 the next element in the collection to a **new** `element` variable. Upon
 reaching the end of the block, the block-scoped variable vanishes, and we return
 to the top. Then we repeat the process, assigning the next element in the
@@ -205,7 +205,7 @@ The `for...in` statement iterates over the five properties in `address`,
 successively passing in the object's keys. However, inside the statement body
 we're trying to access `address.key`. If you recall from the lesson on objects,
 variables don't work with the dot operator because it treats the variable name
-as a literal key &mdash; that is, `address.key` is trying to access the property
+as a literal key — that is, `address.key` is trying to access the property
 on `address` with a key of `key`. Since there is no `key` property in `address`,
 it returns `undefined`. To prove this, let's add a `key` property to `address`:
 
