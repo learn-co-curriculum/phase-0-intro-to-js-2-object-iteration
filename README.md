@@ -239,9 +239,9 @@ rule, **don't use `for...in` with arrays**. When iterating over an array, an
 with **in order**. However, because of how `for...in` works under the hood,
 there's no guarantee of order. From the [MDN documentation][for...in]:
 
-> A `for...in` loop iterates over the properties of an object in an **arbitrary order** ... one cannot depend on the seeming orderliness of iteration, at least in a cross-browser setting).
+> A `for...in` loop iterates over the properties of an object in an **arbitrary order** ... one cannot depend on the seeming orderliness of iteration, at least in a cross-browser setting.
 
-What this means is that, with `for....in`, different browsers might iterate over
+What this means is that, with `for...in`, different browsers might iterate over
 the same object's properties in different orders. That's not cool! Cross-browser
 consistency is very important. A lot of progress has been made towards
 standardizing the behavior of `for...in` across all major browsers, but there's
