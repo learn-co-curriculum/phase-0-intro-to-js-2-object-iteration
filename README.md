@@ -54,7 +54,7 @@ while (j < myArray.length) {
 }
 ```
 
-but neither is very pretty. The `for...of` statement gives us a better to way.
+but neither is very pretty. The `for...of` statement gives us a better way.
 
 ## `for...of`
 
