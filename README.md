@@ -139,7 +139,7 @@ const address = {
   street2: '2nd Floor',
   city: 'New York',
   state: 'NY',
-  zipCode: "10004";
+  zipCode: '10004',
 };
 
 for (const key in address) {
@@ -187,7 +187,7 @@ const address = {
   street2: '2nd Floor',
   city: 'New York',
   state: 'NY',
-  zipCode: "10004"
+  zipCode: '10004'
 };
 
 for (const key in address) {
