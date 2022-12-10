@@ -1,9 +1,5 @@
 ---
 :lessons:
-- :id: 68401
-  :course_id: 3280
-  :canvas_url: https://learning.flatironschool.com/courses/3280/pages/object-iteration
-  :type: page
 - :id: 68607
   :course_id: 3297
   :canvas_url: https://learning.flatironschool.com/courses/3297/pages/object-iteration
